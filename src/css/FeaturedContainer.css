@@ -1,0 +1,8 @@
+.featured-carousel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  max-width: 1600px;
+  margin-left: 10px;
+}

@@ -1,0 +1,81 @@
+* {
+  /* border: 1px dashed red; */
+  box-sizing: border-box;
+}
+.cart-card {
+  max-width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #f6f6f6;
+  box-sizing: border-box;
+  max-height: 500px;
+  /* opacity: 1; */
+  transition: all 1s;
+}
+.hidden {
+  /* opacity: 0; */
+  overflow-y: hidden;
+  max-height: 0;
+  transition: all 1s;
+}
+.cart-card {
+  position: relative;
+}
+.cart-card-imgHolder {
+  padding: 3%;
+  width: 25%;
+  /* max-height: 100%; */
+}
+.cart-card-text {
+  width: 50%;
+  padding: 3%;
+}
+.cart-card-right {
+  text-align: center;
+  padding: 3%;
+  width: 25%;
+  height: 100%;
+}
+.cart-card-right .bold-title {
+  font-family: "Roboto", sans-serif;
+  margin: 3% 0 10px 0;
+}
+.cart-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vw;
+}
+.cart-card-qtyHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+  box-shadow: inset 1px 1px 3px #dcdcdc;
+  border-radius: 30px;
+  padding: 10% 0;
+  background: #f6f6f6;
+}
+.cart-card-qty {
+  background: #f6f6f6;
+  text-align: center;
+  width: 50%;
+}
+.qty-ctrl {
+  width: 25%;
+}
+.cart-card-text p {
+  margin: 3% 0;
+}
+input {
+  outline: none;
+  border: none;
+}
+.title-tag {
+  font-size: 14px;
+}
+.title-tag.cutter {
+  height: 32px;
+}
+.green {
+  color: #8baa3e;
+}

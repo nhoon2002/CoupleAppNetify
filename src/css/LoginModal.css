@@ -1,0 +1,52 @@
+.LoginModal-container {
+  padding: 20px;
+  /* Set max height to bigger than the content, such that when a shrink transform happens, the height can shrink properly with transition, i.e. 500px --> 0px */
+  max-height: 500px;
+  opacity: 1;
+  /* Hide content when shrinking height of container */
+  transition: all 1s;
+}
+
+.close-modal.log-close {
+  position: absolute;
+  width: 100%;
+  bottom: -10%;
+  text-align: center;
+  left: 0;
+}
+/* .close-modal {
+  height: auto;
+} */
+.close-modal span {
+  color: white;
+  font-size: 40px;
+  text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.horiz-line {
+  text-align: center;
+  /* Prevent wrapping to next line */
+  white-space: nowrap;
+  margin: 5px 0;
+}
+.horiz-line::before,
+.horiz-line::after {
+  content: "";
+  width: 45%;
+  height: 1px;
+  background: #c9c9c9;
+  display: inline-block;
+  vertical-align: middle;
+}
+.horiz-line::before {
+  margin-right: 3%;
+}
+.horiz-line::after {
+  margin-left: 3%;
+}
+.LoginModal-link {
+  color: #666;
+}
+.LoginModal-link:first-child {
+  margin: 10px 0;
+}

@@ -1,0 +1,15 @@
+.CreateAccount-container {
+}
+.CreateAccount-inputsHolder {
+  background: white;
+  padding: 10px 20px;
+}
+.CreateAccount-inputsHolder .input-wrapper {
+  padding: 5px 0;
+}
+
+.CreateAccount-inputsHolder input {
+}
+.CreateAccount-inputsHolder .btn-full {
+  margin: 20px 0;
+}

@@ -1,0 +1,21 @@
+.Profile-container {
+  /* background: white; */
+}
+.Profile-links-container {
+  background: white;
+}
+.btn-profile-link {
+  display: flex;
+  width: 100%;
+  text-align: left;
+  padding-left: 5%;
+  color: black;
+  background-color: white;
+}
+.btn-profile-link .fullbtn-icon-holder {
+  flex: 1;
+  text-align: center;
+}
+.btn-profile-link .fullbtn-text-holder {
+  flex: 10;
+}

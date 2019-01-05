@@ -1,0 +1,21 @@
+.ProductDescription-container {
+  padding: 20px 30px;
+  background: white;
+}
+.description-holder {
+  margin-bottom: 30px;
+  font-size: 15px;
+  color: #666;
+}
+
+/* NutritionFacts package */
+.NutritionLabel-root-0-1-1,
+.t-root-0-1-1 {
+  box-shadow: none !important;
+  max-width: 500px;
+}
+.Header-headline-0-1-5,
+.t-headline-0-1-5 {
+  justify-content: flex-start !important;
+  font-size: 30px !important;
+}

@@ -1,0 +1,38 @@
+.ul-holder {
+  display: flex;
+  flex-direction: row;
+}
+.left-ul,
+.right-ul {
+  margin: 0;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  width: 50%;
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  list-style-type: none;
+}
+.footer-li {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.social-icons-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.faHolder {
+  margin: 5px;
+}
+.copyright {
+  text-align: center;
+  width: 90%;
+  margin: 1em auto;
+  padding-top: 10px;
+  white-space: nowrap;
+  font-size: 11px;
+  border-top: 1px solid #cecece;
+}
+footer {
+  background: white;
+}

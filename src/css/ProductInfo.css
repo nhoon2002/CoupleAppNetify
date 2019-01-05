@@ -1,0 +1,25 @@
+.ProductInfo-container {
+  background: white;
+  padding: 10px 30px;
+}
+.product-title-tag {
+  font-size: 22px;
+  color: #222;
+  font-weight: 500;
+}
+.product-price-tag .price {
+  font-size: 28px;
+  font-weight: bold;
+}
+.product-price-tag .msrp {
+  font-size: 22px;
+  text-decoration: line-through;
+  color: #999;
+}
+.product-fineprint {
+  color: #999;
+  font-size: 12px;
+}
+span.unit {
+  padding: 0px 10px 0px 5px;
+}

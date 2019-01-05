@@ -1,0 +1,35 @@
+.Countdowner-holder {
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 35vh;
+  padding: 3% 0;
+}
+.avatar-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5% 0 0 0;
+}
+.avatar-holder img.avatar-circles {
+  border-radius: 50%;
+  border: 2px solid white;
+  max-width: 25vw;
+}
+#heart-symbol {
+  max-width: 18%;
+  color: white;
+}
+.countdown-content {
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+  color: white;
+}
+#countdown-number {
+  font-size: 3em;
+  font-family: "Nunito", sans-serif;
+}

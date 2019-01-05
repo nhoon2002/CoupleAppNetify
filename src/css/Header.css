@@ -1,0 +1,61 @@
+.Header-container {
+  background: #fff;
+  padding-bottom: 5px;
+  box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+img {
+}
+.Top-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 20px;
+}
+.Mid-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 20px;
+}
+.zp-icon.login {
+  width: 20px;
+}
+.zp-icon.cart {
+  width: 24px;
+}
+.zp-icon.hamburger {
+  width: 17px;
+}
+.zp-icon.search {
+  padding-left: 10px;
+  width: 14px;
+}
+.zp-icon.zipcode {
+  width: 17px;
+}
+.zp-logo {
+  max-width: 80px;
+}
+.inputbox {
+  display: flex;
+  align-items: center;
+  background: #f7f7f7;
+  outline: none;
+  height: 38px;
+  max-width: 400px;
+  width: 70%;
+  border-radius: 20px;
+  box-shadow: inset 0px 2px 3px 0 rgba(1, 1, 1, 0.11);
+}
+.Header-input {
+  background: #f7f7f7;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  width: 100%;
+}

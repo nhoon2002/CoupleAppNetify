@@ -1,0 +1,20 @@
+.product-card {
+  width: 95%;
+  margin: 5px auto;
+  overflow-x: hidden;
+  background: #fff;
+  border-radius: 5px;
+  padding: 5% 10%;
+  box-sizing: border-box;
+}
+.product-card {
+  position: relative;
+}
+.product-card img.addtoCart {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+.product-card .title-tag {
+  white-space: nowrap;
+}
