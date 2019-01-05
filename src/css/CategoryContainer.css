@@ -13,3 +13,14 @@
   vertical-align: middle;
   margin-bottom: 0.5em;
 }
+.wholes {
+  width: 100%;
+  vertical-align: middle;
+  margin-bottom: 0.5em;
+}
+.wholes:nth-child(odd) {
+  background: rgba(252, 236, 247, 0.5);
+}
+.wholes:nth-child(even) {
+  background: rgba(221, 246, 255, 0.5);
+}

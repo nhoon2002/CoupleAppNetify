@@ -83,6 +83,26 @@ export const getMissions = () => async dispatch => {
       console.log("error");
     });
 };
+export const getCoupons = () => async dispatch => {
+  await fetch(DEFAULT_API_URL + "coupons", {
+    method: "GET",
+    headers: {
+      Accept: "application/json"
+    }
+  })
+    .then(response => response.json())
+    .then(json => {
+      console.log(json);
+      dispatch({
+        type: "FETCH_COUPONS_COMPLETED",
+        payload: json.coupons
+      });
+    })
+    .catch(error => {
+      console.log(error);
+      console.log("error");
+    });
+};
 export const getCart = id => async dispatch => {
   console.log(id);
   await fetch(DEFAULT_API_URL + "get-cart", {

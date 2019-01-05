@@ -79,12 +79,14 @@ export default class Header extends Component {
                   className="zp-img zp-icon zipcode"
                   src="/assets/images/icon-zipcode.png"
                   alt="zipcode"
+                  onClick={() => this.props.router.push("/coupons")}
                 />
               ) : (
                 <img
                   className="zp-img zp-icon zipcode"
                   src="/assets/images/icon-zipcode-disabled.png"
                   alt="zipcode"
+                  onClick={() => this.props.router.push("/coupons")}
                 />
               )}
             </div>

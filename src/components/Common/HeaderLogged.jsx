@@ -64,9 +64,7 @@ export default class Header extends Component {
             </div>
             <div
               className="zp-icon-holder"
-              onClick={() =>
-                this.props.modalToggle(this.state.modalStatus, "zipcode")
-              }
+              onClick={() => this.props.router.push("/coupons")}
             >
               <img
                 className="zp-img zp-icon zipcode"

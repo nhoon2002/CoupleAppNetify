@@ -7,7 +7,7 @@ export default class CategoryContainer extends React.Component {
     return (
       <div className="CategoryContainer-container">
         {categories.map((cat, i) => (
-          <div className="halves" key={i}>
+          <div className="wholes" key={i}>
             <CategoryBox
               categoryName={cat.name}
               categoryImg={cat.img_url}

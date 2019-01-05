@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import SectionHeader from "../components/Common/SectionHeader.jsx";
 import CategoryContainer from "../components/Common/CategoryContainer.jsx";
 
-class Category extends Component {
+class Mission extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,11 +25,12 @@ class Category extends Component {
   render() {
     let items = this.state.missions;
     return (
-      <div className="Home-content">
+      <div className="Mission-content">
+        <button className="add-new-mission">+</button>
         <SectionHeader title="Missions" />
         <CategoryContainer categories={items} router={this.props.router} />
       </div>
     );
   }
 }
-export default Category;
+export default Mission;

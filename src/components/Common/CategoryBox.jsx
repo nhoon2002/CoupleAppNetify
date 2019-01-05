@@ -5,16 +5,15 @@ const CategoryBox = props => (
     className="CategoryBox-container"
     onClick={() => props.router.push(`/products/${props.categoryName}`)}
   >
-    <div className="CategoryBox-header">{props.categoryName}</div>
-    {/* <div className="CategoryBox-imgHolder"> */}
-    <span className="img-wrap">
+    <div className="CategoryBox-img-holder">
       <img
         src={props.categoryImg || "https://placehold.it/90x90"}
         alt="placeholder"
         className="catImg"
       />
-    </span>
-    {/* </div> */}
+    </div>
+    <div className="CategoryBox-content">This is the name of the mission.</div>
+    <div className="CategoryBox-price-box">200&hearts;</div>
   </div>
 );
 export default CategoryBox;

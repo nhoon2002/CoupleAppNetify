@@ -4,7 +4,7 @@
   flex-direction: column;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 35vh;
+  height: 45vh;
   padding: 3% 0;
 }
 .avatar-holder {
@@ -31,5 +31,5 @@
 }
 #countdown-number {
   font-size: 3em;
-  font-family: "Nunito", sans-serif;
+  font-family: "Stylish", sans-serif;
 }

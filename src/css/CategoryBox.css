@@ -1,52 +1,32 @@
 .CategoryBox-container {
   position: relative;
   width: 95%;
-  height: 40vw;
+  height: 20vw;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
   margin: 0 auto;
-  background-color: #fff;
+  /* background-color: #fff; */
   border-radius: 5px;
 }
-span.img-wrap {
-  display: inline-block;
+.CategoryBox-content {
+  width: 80%;
+  padding: 20px;
+}
+.CategoryBox-img-holder img {
+  border-radius: 50%;
+  max-width: 70%;
+}
+.CategoryBox-img-holder {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.CategoryBox-price-box {
   position: absolute;
-  bottom: 0;
+  top: 0;
   right: 0;
-  width: max-content;
-  text-align: right;
-  pointer-events: none; /* Prevent accidental clicks on this oversized-span */
-}
-.catImg {
-  margin-bottom: -4px; /*Gets rid of ghost space at the bottom*/
-  z-index: 1;
-  width: calc(100% / 3);
-}
-
-.CategoryBox-header {
-  position: relative;
-  z-index: 1;
-
-  max-width: 85%;
-
-  font-size: 14.5px;
-}
-.CategoryBox-imgHolder {
-  position: relative;
-  /* display: flex; */
-  /* justify-content: flex-end; */
-}
-@media (min-width: 500px) {
-  .catImg {
-    margin-bottom: -4px;
-    z-index: 1;
-    max-width: max-content;
-    width: 70%;
-  }
-  span.img-wrap {
-    display: block;
-    width: auto;
-  }
+  border: 1px solid black;
+  padding: 0px 5px;
+  margin-top: 5px;
 }
