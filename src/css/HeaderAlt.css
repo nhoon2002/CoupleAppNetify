@@ -76,7 +76,8 @@ img {
   width: 32px;
 }
 .zp-icon.zipcode {
-  width: 17px;
+  width: 27px;
+  fill: #676767;
 }
 .zp-logo {
   max-width: 80px;

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import SectionHeader from "../components/Common/SectionHeader.jsx";
-import CategoryContainer from "../components/Common/CategoryContainer.jsx";
+import Scoreboard from "../components/Common/Scoreboard.jsx";
+import CouponsHolder from "../components/Common/CouponsHolder.jsx";
+import MissionContainer from "../components/Common/MissionContainer.jsx";
+import "../css/Coupons.css";
 
-class Mission extends Component {
+class Coupons extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,12 +26,18 @@ class Mission extends Component {
   render() {
     let items = this.state.coupons;
     return (
-      <div className="Mission-content">
-        <button className="add-new-coupon">+</button>
-        <SectionHeader title="Coupons" />
-        <CategoryContainer categories={items} router={this.props.router} />
+      <div className="Coupons-container">
+        <Scoreboard />
+        <div className="Coupons-holder">
+          <CouponsHolder categories={items} router={this.props.router} />
+          <CouponsHolder
+            categories={items}
+            owner={"nh"}
+            router={this.props.router}
+          />
+        </div>
       </div>
     );
   }
 }
-export default Mission;
+export default Coupons;

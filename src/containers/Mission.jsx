@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import SectionHeader from "../components/Common/SectionHeader.jsx";
-import CategoryContainer from "../components/Common/CategoryContainer.jsx";
+import MissionContainer from "../components/Common/MissionContainer.jsx";
+import "../css/Mission.css";
+import { Link } from "react-router";
 
 class Mission extends Component {
   constructor(props) {
@@ -26,9 +28,11 @@ class Mission extends Component {
     let items = this.state.missions;
     return (
       <div className="Mission-content">
-        <button className="add-new-mission">+</button>
+        <button className="add-new-mission">
+          <Link to="/create-mission/nh">+</Link>
+        </button>
         <SectionHeader title="Missions" />
-        <CategoryContainer categories={items} router={this.props.router} />
+        <MissionContainer categories={items} router={this.props.router} />
       </div>
     );
   }

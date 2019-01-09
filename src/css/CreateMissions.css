@@ -1,0 +1,9 @@
+.CreateMission-content {
+  background: white;
+}
+.FormHolder {
+  padding: 10px;
+}
+.FormHolder .input-wrapper {
+  margin: 10px 0;
+}

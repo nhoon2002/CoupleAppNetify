@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router";
 import "../../css/HeaderAlt.css";
-import HeaderInput from "./HeaderInput.jsx";
+// import HeaderInput from "./HeaderInput.jsx";
 import LoginModal from "./LoginModal.jsx";
 import ZipcodeModal from "./ZipcodeModal.jsx";
 
-export default class Header extends Component {
+class Header extends Component {
   constructor(props) {
     super(props);
     this.state = { modalStatus: false, type: "", zipcode: "Zipcode" };
@@ -37,14 +37,36 @@ export default class Header extends Component {
               {currentRoute === "/missions" ? (
                 <img
                   className="zp-img zp-icon hamburger"
-                  src="/assets/images/icon-category.png"
-                  alt="login"
+                  src="/assets/images/fa/tasks.svg"
+                  alt="mission"
                 />
               ) : (
                 <img
                   className="zp-img zp-icon hamburger"
-                  src="/assets/images/icon-category-disabled.png"
-                  alt="login"
+                  src="/assets/images/fa/tasks.svg"
+                  alt="mission"
+                />
+              )}
+            </div>
+            <div
+              className="zp-icon-holder zipcode"
+              // onClick={() =>
+              //   this.props.modalToggle(this.state.modalStatus, "zipcode")
+              // }
+            >
+              {this.state.type === "zipcode" ? (
+                <img
+                  className="zp-img zp-icon zipcode"
+                  src="/assets/images/fa/hand-holding-heart.svg"
+                  alt="zipcode"
+                  onClick={() => this.props.router.push("/coupons")}
+                />
+              ) : (
+                <img
+                  className="zp-img zp-icon zipcode"
+                  src="/assets/images/fa/hand-holding-heart.svg"
+                  alt="zipcode"
+                  onClick={() => this.props.router.push("/coupons")}
                 />
               )}
             </div>
@@ -57,45 +79,22 @@ export default class Header extends Component {
               {this.state.type === "login" ? (
                 <img
                   className="zp-img zp-icon login"
-                  src="/assets/images/icon-login.png"
+                  src="/assets/images/fa/lock.svg"
                   alt="login"
                 />
               ) : (
                 <img
                   className="zp-img zp-icon login"
-                  src="/assets/images/icon-login-disabled.png"
+                  src="/assets/images/fa/lock.svg"
                   alt="login"
-                />
-              )}
-            </div>
-            <div
-              className="zp-icon-holder zipcode"
-              onClick={() =>
-                this.props.modalToggle(this.state.modalStatus, "zipcode")
-              }
-            >
-              {this.state.type === "zipcode" ? (
-                <img
-                  className="zp-img zp-icon zipcode"
-                  src="/assets/images/icon-zipcode.png"
-                  alt="zipcode"
-                  onClick={() => this.props.router.push("/coupons")}
-                />
-              ) : (
-                <img
-                  className="zp-img zp-icon zipcode"
-                  src="/assets/images/icon-zipcode-disabled.png"
-                  alt="zipcode"
-                  onClick={() => this.props.router.push("/coupons")}
                 />
               )}
             </div>
             <div className="zp-icon-holder cart">
               <img
                 className="zp-img zp-icon cart"
-                src="/assets/images/icon-cart-disabled.png"
-                alt="cart"
-                // onClick={() => this.props.router.push("/cart")}
+                src="/assets/images/fa/calendar-check.svg"
+                alt="calendar"
               />
             </div>
           </div>
@@ -104,14 +103,13 @@ export default class Header extends Component {
               <span className="zp-cattext">Missions</span>
             </div>
             <div className="zp-span-holder">
+              <span className="zp-cattext">Coupons</span>
+            </div>
+            <div className="zp-span-holder">
               <span className="zp-cattext">Log in</span>
             </div>
             <div className="zp-span-holder">
-              <span className="zp-cattext">Coupons</span>
-              {/* <span className="zp-cattext">{this.state.zipcode}</span> */}
-            </div>
-            <div className="zp-span-holder">
-              <span className="zp-cattext">Cart</span>
+              <span className="zp-cattext">Calendar</span>
             </div>
           </div>
         </div>
@@ -122,3 +120,4 @@ export default class Header extends Component {
     );
   }
 }
+export default Header;

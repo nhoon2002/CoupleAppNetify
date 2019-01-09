@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router";
 import "../../css/HeaderAlt.css";
-import HeaderInput from "./HeaderInput.jsx";
+// import HeaderInput from "./HeaderInput.jsx";
 import LoginModal from "./LoginModal.jsx";
 import ZipcodeModal from "./ZipcodeModal.jsx";
 import ProfileModal from "./ProfileModal.jsx";
 
-export default class Header extends Component {
+class HeaderLogged extends Component {
   constructor(props) {
     super(props);
     this.state = { modalStatus: false };
@@ -104,3 +104,4 @@ export default class Header extends Component {
     );
   }
 }
+export default HeaderLogged;

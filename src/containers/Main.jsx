@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import HeaderAlt from "../components/Common/HeaderAlt.jsx";
 import HeaderLogged from "../components/Common/HeaderLogged.jsx";
-import Footer from "../components/Common/Footer.jsx";
+// import Footer from "../components/Common/Footer.jsx";
 import ModalOverlay from "../components/Common/ModalOverlay.jsx";
 import Notification from "../components/Common/Notification.jsx";
 import "../css/App.css";
@@ -61,7 +61,7 @@ class Main extends Component {
           type={this.state.notificationType}
           msg={this.state.notificationMsg}
         />
-        {/* <HeaderAlt {...this.props} /> */}
+        {/* <Header {...this.props} /> */}
         {/* <HeaderLogged {...this.props} /> */}
         {Header}
         <ModalOverlay modal={this.state.modalStatus} />
@@ -69,7 +69,7 @@ class Main extends Component {
         <div className="container Main-content">
           {React.cloneElement(this.props.children, this.props)}
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

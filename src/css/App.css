@@ -5,22 +5,35 @@ body {
   -webkit-tap-highlight-color: transparent;
   background-color: #fff;
 }
+html,
+body {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
 /* //validation */
 input:invalid:not(:focus) {
   box-shadow: 0 0 0pt 2pt #f00;
 }
-
+a {
+  outline: none;
+  border: none;
+  text-decoration: none;
+  color: inherit;
+}
 .Main {
-  padding-top: 130px;
+  padding-top: 150px;
   background: #f7f7f7;
 }
 .container.Main-content {
   background: #f7f7f7;
   padding: 0 0 0 0;
-  min-height: 50vh;
+  margin-top: 3%;
+  height: 80vh;
+  overflow: auto;
 }
 .container.Main-content > div:first-child {
-  margin-top: 4vh;
+  /* margin-top: 4vh; */
 }
 .Home-content {
   background: #f7f7f7;
@@ -189,23 +202,4 @@ img {
 }
 .fullbtn-icon-holder {
   margin-right: 3%;
-}
-.Mission-content {
-  position: relative;
-}
-.Mission-content button.add-new-mission {
-  position: absolute;
-  top: 0;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  font-size: 1.3em;
-  outline: none;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  vertical-align: middle;
-  color: green;
-  right: 15px;
 }

@@ -5,6 +5,7 @@
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 2;
 }
 img {
 }
@@ -17,10 +18,48 @@ img {
 }
 .Mid-bar {
   display: flex;
+  flex-direction: column;
+  margin: 15px 0px;
+}
+.Mid-img-holder {
+  position: relative;
+  display: flex;
   flex-direction: row;
-  justify-content: space-between;
+}
+.zp-icon-holder {
+  flex: 1;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 10px 20px;
+}
+.Mid-img-holder img.zp-icon {
+}
+.Mid-span-holder {
+  margin-top: 5px;
+  font-size: 9px;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.zp-span-holder {
+  flex: 1;
+  justify-content: center;
+  display: flex;
+  position: relative;
+}
+.zp-span-holder::after {
+  content: "";
+  position: absolute;
+  transform: scaleX(0.3);
+  width: 1px;
+  right: 0;
+  height: 30px;
+  bottom: 0;
+  background: black;
+}
+.zp-span-holder:last-child::after {
+  display: none;
 }
 .zp-icon.login {
   width: 20px;
@@ -29,11 +68,12 @@ img {
   width: 24px;
 }
 .zp-icon.hamburger {
-  width: 17px;
+  width: 22px;
 }
 .zp-icon.search {
   padding-left: 10px;
-  width: 14px;
+  padding-right: 5px;
+  width: 32px;
 }
 .zp-icon.zipcode {
   width: 17px;

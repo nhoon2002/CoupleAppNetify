@@ -19,13 +19,21 @@ class Scoreboard extends React.Component {
     return (
       <div className="Scoreboard-holder">
         <div className="score-holder">
-          <img class="avatar-gif" src="assets/images/home/nh.gif" />
-          <span class="score">1000&hearts;</span>
+          <img
+            className="avatar-gif"
+            src="assets/images/home/nh.gif"
+            alt="prof-avatar"
+          />
+          <span className="score">1000&hearts;</span>
         </div>
         <div id="separator">|</div>
         <div className="score-holder">
-          <span class="score">1100&hearts;</span>
-          <img class="avatar-gif" src="assets/images/home/ch.gif" />
+          <span className="score">1100&hearts;</span>
+          <img
+            className="avatar-gif"
+            src="assets/images/home/ch.gif"
+            alt="prof-avatar"
+          />
         </div>
       </div>
     );

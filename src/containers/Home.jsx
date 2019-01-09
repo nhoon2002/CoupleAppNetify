@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Animated } from "react-animated-css";
-import HomeBanner from "../components/Home/HomeBanner.jsx";
-import SectionHeader from "../components/Common/SectionHeader.jsx";
-import FeaturedContainer from "../components/Common/FeaturedContainer.jsx";
-import CategoryContainer from "../components/Common/CategoryContainer.jsx";
+// import SectionHeader from "../components/Common/SectionHeader.jsx";
+// import FeaturedContainer from "../components/Common/FeaturedContainer.jsx";
+// import MissionContainer from "../components/Common/MissionContainer.jsx";
 import Countdowner from "../components/Common/Countdowner.jsx";
 import Scoreboard from "../components/Common/Scoreboard.jsx";
 
@@ -37,7 +36,6 @@ class Home extends Component {
     return null;
   }
   render() {
-    let items = this.state.categories;
     return (
       <Animated
         animationIn="fadeIn"
@@ -49,7 +47,7 @@ class Home extends Component {
           <SectionHeader title="Recent Coupon" />
           <FeaturedContainer {...this.props} />
           <SectionHeader title="Recent Coupons" />
-          <CategoryContainer categories={items} router={this.props.router} /> */}
+          <MissionContainer categories={items} router={this.props.router} /> */}
           <Countdowner imgSrc={this.state.imgSrc[0]} />
           <Scoreboard />
         </div>

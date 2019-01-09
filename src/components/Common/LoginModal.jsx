@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router";
+// import { Link } from "react-router";
 import FullButton from "./FullButton.jsx";
 import InputChild from "./InputChild.jsx";
 import "../../css/LoginModal.css";
-import { faGoogle, faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
+// import { faGoogle, faFacebookSquare } from "@fortawesome/free-brands-svg-icons";
 class LoginModal extends React.Component {
   constructor(props) {
     super(props);

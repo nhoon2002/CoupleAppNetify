@@ -1,5 +1,5 @@
 import React from "react";
-// import FeatureCard from "./FeatureCard.jsx";
+import ProfileAvatar from "./ProfileAvatar.jsx";
 import "../../css/Countdowner.css";
 class Countdowner extends React.Component {
   constructor(props) {
@@ -27,10 +27,19 @@ class Countdowner extends React.Component {
         style={{ backgroundImage: `url(${this.props.imgSrc})` }}
       >
         <div className="avatar-holder">
-          <img class="avatar-circles" src="https://placehold.it/150x150" />
-          <img id="heart-symbol" src="assets/images/home/love2.png" />
-
-          <img class="avatar-circles" src="https://placehold.it/150x150" />
+          <ProfileAvatar
+            className="avatar-circles"
+            imgSrc="http://placehold.it/150x150"
+          />
+          <img
+            id="heart-symbol"
+            src="assets/images/home/love2.png"
+            alt="default"
+          />
+          <ProfileAvatar
+            className="avatar-circles"
+            imgSrc="http://placehold.it/150x150"
+          />
         </div>
 
         <div className="countdown-content">

@@ -1,0 +1,7 @@
+.coupon-card {
+  width: 100%;
+  height: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

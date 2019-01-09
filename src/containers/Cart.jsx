@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import SectionHeader from "../components/Common/SectionHeader.jsx";
 import CartCard from "../components/Cart/CartCard.jsx";
 import CartSummary from "../components/Cart/CartSummary.jsx";
-import FeaturedContainer from "../components/Common/FeaturedContainer.jsx";
+// import FeaturedContainer from "../components/Common/FeaturedContainer.jsx";
 
 class Cart extends Component {
   constructor(props) {
@@ -75,8 +75,8 @@ class Cart extends Component {
           length={this.state.cart.length}
           router={this.props.router}
         />
-        <SectionHeader title="Add Related Products" />
-        <FeaturedContainer {...this.props} />
+        {/* <SectionHeader title="Add Related Products" />
+        <FeaturedContainer {...this.props} /> */}
       </div>
     );
   }

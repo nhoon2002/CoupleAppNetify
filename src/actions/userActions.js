@@ -371,7 +371,7 @@ export const SigninLocal = (email, password) => dispatch => {
     })
     .catch(function(error) {
       // Handle Errors here.
-      var errorCode = error.code;
+      // var errorCode = error.code;
       var errorMessage = error.message;
       console.log(errorMessage);
       let currentStatus = {

@@ -1,4 +1,4 @@
-.CategoryBox-container {
+.MissionBox-container {
   position: relative;
   width: 95%;
   height: 20vw;
@@ -9,20 +9,20 @@
   /* background-color: #fff; */
   border-radius: 5px;
 }
-.CategoryBox-content {
+.MissionBox-content {
   width: 80%;
   padding: 20px;
 }
-.CategoryBox-img-holder img {
+.MissionBox-img-holder img {
   border-radius: 50%;
   max-width: 70%;
 }
-.CategoryBox-img-holder {
+.MissionBox-img-holder {
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.CategoryBox-price-box {
+.MissionBox-price-box {
   position: absolute;
   top: 0;
   right: 0;

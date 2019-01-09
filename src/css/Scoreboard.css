@@ -5,7 +5,8 @@
   align-items: center;
   padding: 5%;
   background: white;
-  box-shadow: 1px -1px 9px 0px grey;
+  border: 10px black;
+  border-style: double;
 }
 .score-holder {
   display: flex;
@@ -21,4 +22,5 @@
 }
 #separator {
   font-size: 3em;
+  font-family: sans-serif;
 }

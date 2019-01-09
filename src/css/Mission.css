@@ -1,0 +1,19 @@
+.Mission-content {
+  position: relative;
+}
+.Mission-content button.add-new-mission {
+  position: absolute;
+  background: transparent;
+  border: 1px solid #fff !important;
+  top: 10px;
+  width: 35px;
+  font-size: 1.3em;
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  color: white;
+  right: 15px;
+}
