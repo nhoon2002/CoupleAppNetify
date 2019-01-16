@@ -8,12 +8,13 @@ import ZipcodeModal from "./ZipcodeModal.jsx";
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = { modalStatus: false, type: "", zipcode: "Zipcode" };
+    this.state = { modalStatus: false, type: "" };
   }
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.modalStatus !== prevState.modalStatus) {
       return { modalStatus: nextProps.modalStatus, type: nextProps.modalType };
-    } else return null;
+    }
+    return null;
   }
   render() {
     const currentRoute = this.props.router.location.pathname;
@@ -48,27 +49,20 @@ class Header extends Component {
                 />
               )}
             </div>
-            <div
-              className="zp-icon-holder zipcode"
-              // onClick={() =>
-              //   this.props.modalToggle(this.state.modalStatus, "zipcode")
-              // }
-            >
-              {this.state.type === "zipcode" ? (
-                <img
-                  className="zp-img zp-icon zipcode"
-                  src="/assets/images/fa/hand-holding-heart.svg"
-                  alt="zipcode"
-                  onClick={() => this.props.router.push("/coupons")}
-                />
-              ) : (
-                <img
-                  className="zp-img zp-icon zipcode"
-                  src="/assets/images/fa/hand-holding-heart.svg"
-                  alt="zipcode"
-                  onClick={() => this.props.router.push("/coupons")}
-                />
-              )}
+            <div className="zp-icon-holder">
+              <img
+                className="zp-img zp-icon zipcode"
+                src="/assets/images/fa/hand-holding-heart.svg"
+                alt="zipcode"
+                onClick={() => this.props.router.push("/coupons")}
+              />
+            </div>
+            <div className="zp-icon-holder cart">
+              <img
+                className="zp-img zp-icon cart"
+                src="/assets/images/fa/calendar-check.svg"
+                alt="calendar"
+              />
             </div>
             <div
               className="zp-icon-holder login"
@@ -90,13 +84,6 @@ class Header extends Component {
                 />
               )}
             </div>
-            <div className="zp-icon-holder cart">
-              <img
-                className="zp-img zp-icon cart"
-                src="/assets/images/fa/calendar-check.svg"
-                alt="calendar"
-              />
-            </div>
           </div>
           <div className="Mid-span-holder">
             <div className="zp-span-holder">
@@ -106,10 +93,10 @@ class Header extends Component {
               <span className="zp-cattext">Coupons</span>
             </div>
             <div className="zp-span-holder">
-              <span className="zp-cattext">Log in</span>
+              <span className="zp-cattext">Calendar</span>
             </div>
             <div className="zp-span-holder">
-              <span className="zp-cattext">Calendar</span>
+              <span className="zp-cattext">Log in</span>
             </div>
           </div>
         </div>

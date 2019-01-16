@@ -8,23 +8,41 @@ class CreateMission extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // imgSrc: "https://placehold.it/250x250?text=Product",
-      user: [],
+      user: "",
       title: "",
       desc: "",
-      pvalue: ""
-
-      // productDetail: { imgSrc: "https://placehold.it/250x250?text=Product" }
+      pvalue: undefined
     };
   }
   componentDidMount() {
     window.scrollTo(0, 0);
     this.props.modalToggle(true, "");
   }
-  inputValueDetector = (e, type) => {
-    this.setState({ [e.target.type]: e.target.value });
+  inputValueDetector = (e, tfor) => {
+    this.setState({ [tfor]: e.target.value });
   };
-
+  handleClick = () => {
+    let data = {
+      creator: this.state.user,
+      title: this.state.title,
+      descr: this.state.desc,
+      pvalue: this.state.pvalue
+    };
+    if (
+      data.creator === "" ||
+      data.title === "" ||
+      data.pvalue === "" ||
+      isNaN(data.pvalue)
+    ) {
+      this.props.notificationToggle({
+        currentlyShowing: false,
+        msg: "Mission is invalid. Please check all fields.",
+        type: "warning"
+      });
+    } else {
+      this.props.createNewMission(data);
+    }
+  };
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.router !== prevState.router) {
       return { user: nextProps.params.user };
@@ -51,25 +69,28 @@ class CreateMission extends Component {
               inputValueDetector={this.inputValueDetector}
               value={this.state.title}
               type="text"
+              tfor="title"
               placeholder="Title"
             />
             <InputChild
               inputValueDetector={this.inputValueDetector}
               value={this.state.desc}
               type="text"
+              tfor="desc"
               placeholder="Description"
             />
             <InputChild
               inputValueDetector={this.inputValueDetector}
               value={this.state.pvalue}
               type="number"
+              tfor="pvalue"
               placeholder="Value (&hearts;)"
             />
             <FullButton
               color="white"
               classList="btn btn-full rounded btn-xen"
               btnText="Submit"
-              action={() => this.props.router.push("/missions")}
+              action={this.handleClick}
             />
           </div>
         </div>

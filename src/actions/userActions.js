@@ -142,10 +142,52 @@ export const addToCart = data => async dispatch => {
           type: "ADDED_TO_CART",
           payload: true
         });
+
         dispatch(
           notificationToggle({
             currentlyShowing: false,
             msg: "Item added to cart!",
+            type: "success"
+          })
+        );
+      } else {
+        dispatch(
+          notificationToggle({
+            currentlyShowing: false,
+            msg: json.message,
+            type: "danger"
+          })
+        );
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      console.log("error");
+    });
+};
+export const createNewMission = data => async dispatch => {
+  console.log(data);
+  console.log("CREATING NEW MISSION");
+  await fetch(DEFAULT_API_URL + "create-new-mission", {
+    method: "POST",
+    headers: {
+      Accept: "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(json => {
+      console.log(DEFAULT_API_URL + "create-new-mission");
+      if (json.status) {
+        dispatch({
+          type: "CREATED_MISSION_SUCCESS",
+          payload: true
+        });
+        browserHistory.push("/missions");
+        this.dispatch(
+          notificationToggle({
+            currentlyShowing: false,
+            msg: "New mission added!",
             type: "success"
           })
         );
@@ -315,17 +357,32 @@ export const notificationToggle = currentStatus => dispatch => {
     );
   }
 };
-
+export const requestLogin = () => dispatch => {
+  dispatch(modalToggle(false, "login"));
+  dispatch(
+    notificationToggle({
+      currentlyShowing: false,
+      msg: "You must login first",
+      type: "danger"
+    })
+  );
+};
 export const checkSession = () => dispatch => {
   let firebaseUser = firebase.auth().currentUser;
 
+  // If a user is not logged in...
   if (!firebaseUser) {
+    // Tell the reducer to clear session prop
     dispatch({ type: "SESSION_NULL", payload: "" });
     console.log("Auth status changed: not logged in.");
-    console.log("---1----");
+    // Push the user to the main page if not logged in.
     const loc = browserHistory.getCurrentLocation().pathname;
-    console.log(loc);
+    if (loc !== "/") {
+      browserHistory.push("/");
+    }
+    dispatch(requestLogin());
   } else {
+    // localStorage.setItem("loginStatus", firebaseUser.uid);
     dispatch({ type: "SESSION_EXISTS", payload: firebaseUser });
   }
 };
@@ -345,8 +402,7 @@ export const signOut = () => dispatch => {
   browserHistory.push("/");
 };
 export const SigninLocal = (email, password) => dispatch => {
-  console.log(email, password);
-  dispatch({ type: "LOGIN_LOCAL_ACCOUNT", payload: "" });
+  dispatch({ type: "LOGIN_LOCAL_ACCOUNT" });
   firebase
     .auth()
     .signInWithEmailAndPassword(email, password)
@@ -355,15 +411,15 @@ export const SigninLocal = (email, password) => dispatch => {
       // let token = result.credential.accessToken;
       // The signed-in user info.
       let user = result.user;
-      dispatch({ type: "LOGIN_LOCAL_ACCOUNT", payload: user });
       console.log("-------local------");
-      console.log(user);
+      console.log(user.email, user.uid);
       console.log("-------local------");
+      // Keep in mind that on successful login, this will trigger a checkSession from routes.jsx, updating currentUser at store.
       dispatch({
         type: "LOCAL_ACCOUNT_SUCCESS",
         payload: { dbUser: user }
       });
-      dispatch(checkSession());
+
       dispatch({
         type: "SWITCH_MODAL_OFF",
         payload: false

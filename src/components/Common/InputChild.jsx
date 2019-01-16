@@ -10,7 +10,7 @@ class InputChild extends Component {
           placeholder={this.props.placeholder}
           value={this.props.value}
           onFocus={e => (e.target.placeholder = "")}
-          onChange={e => this.props.inputValueDetector(e, this.props.type)}
+          onChange={e => this.props.inputValueDetector(e, this.props.tfor)}
         />
       </div>
     );

@@ -1,5 +1,6 @@
 import React from "react";
 import ProfileAvatar from "./ProfileAvatar.jsx";
+import VideoBg from "./VideoBg.jsx";
 import "../../css/Countdowner.css";
 class Countdowner extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class Countdowner extends React.Component {
         className="Countdowner-holder"
         style={{ backgroundImage: `url(${this.props.imgSrc})` }}
       >
+        <VideoBg />
         <div className="avatar-holder">
           <ProfileAvatar
             className="avatar-circles"
@@ -45,7 +47,7 @@ class Countdowner extends React.Component {
         <div className="countdown-content">
           <span id="countdown-number">{this.state.date}</span>
 
-          <p>...Days since December 5, 2015</p>
+          <p>...days since December 5, 2015</p>
         </div>
       </div>
     );

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Scoreboard from "../components/Common/Scoreboard.jsx";
 import CouponsHolder from "../components/Common/CouponsHolder.jsx";
-import MissionContainer from "../components/Common/MissionContainer.jsx";
 import "../css/Coupons.css";
 
 class Coupons extends Component {
@@ -27,7 +26,7 @@ class Coupons extends Component {
     let items = this.state.coupons;
     return (
       <div className="Coupons-container">
-        <Scoreboard />
+        <Scoreboard customClass="mini-size" />
         <div className="Coupons-holder">
           <CouponsHolder categories={items} router={this.props.router} />
           <CouponsHolder

@@ -7,18 +7,24 @@ import Home from "./containers/Home.jsx";
 import Mission from "./containers/Mission.jsx";
 import Coupons from "./containers/Coupons.jsx";
 import CreateMission from "./containers/CreateMission.jsx";
-// import Products from "./containers/Products.jsx";
-// import ProductDetail from "./containers/ProductDetail.jsx";
 import Cart from "./containers/Cart.jsx";
-import CreateAccount from "./containers/CreateAccount.jsx";
-import Checkout from "./containers/Checkout.jsx";
+
 import fire from "./firebase.js"; //Firebase config
 import { checkSession } from "./actions/userActions.js";
 
-fire.auth().onAuthStateChanged(firebaseUser => {
+const handleRoute = (nextState, replace) => {
+  console.log("handling route...");
   store.dispatch(checkSession());
-  if (firebaseUser) console.log("User: %s", firebaseUser.uid);
-  else console.log("User: %s", null);
+};
+
+fire.auth().onAuthStateChanged(firebaseUser => {
+  // If user is not logged in yet, prevent them from entering protected routes.
+  store.dispatch(checkSession());
+  if (firebaseUser) {
+    console.log("User: %s", firebaseUser.uid);
+  } else {
+    console.log("User: %s", null);
+  }
 });
 
 const routes = (
@@ -26,14 +32,14 @@ const routes = (
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
-        <Route path="/missions" component={Mission} />
-        {/* <Route path="/products" component={Products} /> */}
-        <Route path="/coupons" component={Coupons} />
-        {/* <Route path="/detail/:pid" component={ProductDetail} /> */}
-        <Route path="/create-mission/:user" component={CreateMission} />
-        <Route path="/cart" component={Cart} />
-        <Route path="/create-account" component={CreateAccount} />
-        <Route path="/checkout" component={Checkout} />
+        <Route path="missions" onEnter={handleRoute} component={Mission} />
+        <Route path="coupons" onEnter={handleRoute} component={Coupons} />
+        <Route
+          path="create-mission/uid=:user"
+          onEnter={handleRoute}
+          component={CreateMission}
+        />
+        <Route path="cart" component={Cart} />
       </Route>
     </Router>
   </Provider>

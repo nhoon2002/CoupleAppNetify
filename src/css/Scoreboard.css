@@ -20,6 +20,13 @@
 .avatar-gif {
   width: 100px;
 }
+.mini-size {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.mini-size .avatar-gif {
+  width: 50px;
+}
 #separator {
   font-size: 3em;
   font-family: sans-serif;

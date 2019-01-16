@@ -13,8 +13,8 @@ const MissionBox = props => (
         className="catImg"
       />
     </div>
-    <div className="MissionBox-content">This is the name of the mission.</div>
-    <div className="MissionBox-price-box">200&hearts;</div>
+    <div className="MissionBox-content">{props.title}</div>
+    <div className="MissionBox-price-box">{props.pvalue}&hearts;</div>
   </div>
 );
 export default MissionBox;

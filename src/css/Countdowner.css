@@ -5,9 +5,12 @@
   justify-content: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 45vh;
+  height: 60vh;
+  position: relative;
 }
 .avatar-holder {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -23,6 +26,8 @@
   color: white;
 }
 .countdown-content {
+  position: relative;
+  z-index: 3;
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
   font-size: 16px;
@@ -31,4 +36,27 @@
 #countdown-number {
   font-size: 3em;
   font-family: "Stylish", sans-serif;
+  text-shadow: 2px 2px 2px black;
+}
+.countdown-content p {
+  text-shadow: 2px 2px 2px black;
+}
+#bgVid {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.2) translateY(8%);
+
+  object-fit: cover;
+  object-position: top right;
+}
+.Home-content .Scoreboard-holder {
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  bottom: 0;
 }

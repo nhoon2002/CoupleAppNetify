@@ -20,16 +20,21 @@ class Mission extends Component {
   }
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.missions !== prevState.missions) {
+      console.log("missions:-------------");
+      console.log(nextProps.missions);
       return { missions: nextProps.missions };
     }
     return null;
   }
   render() {
     let items = this.state.missions;
+
     return (
       <div className="Mission-content">
         <button className="add-new-mission">
-          <Link to="/create-mission/nh">+</Link>
+          <Link to={"/create-mission/uid=" + this.props.db_currentUser.uid}>
+            +
+          </Link>
         </button>
         <SectionHeader title="Missions" />
         <MissionContainer categories={items} router={this.props.router} />

@@ -1,11 +1,8 @@
 .Coupons-holder {
-  /* border: 2px solid blue; */
-  /* background: blue; */
-  /* z-index: 10; */
-  /* overflow: hidden; */
 }
 .Coupon-holder-half {
   flex: 1;
+  margin-top: 55px;
   display: flex;
   flex-direction: column;
   text-align: center;

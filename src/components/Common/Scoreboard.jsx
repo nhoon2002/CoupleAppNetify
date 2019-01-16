@@ -8,7 +8,9 @@ class Scoreboard extends React.Component {
       score: ""
     };
   }
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(this.props.currentUser.uid, this.props.currentUser.email);
+  }
   // static getDerivedStateFromProps(nextProps, prevState) {
   //   if (nextProps.categories !== prevState.featuredData) {
   //     return { featuredData: nextProps.categories };
@@ -16,8 +18,10 @@ class Scoreboard extends React.Component {
   //   return null;
   // }
   render() {
+    const currentUser = this.props.currentUser.uid;
+
     return (
-      <div className="Scoreboard-holder">
+      <div className={"Scoreboard-holder " + this.props.customClass}>
         <div className="score-holder">
           <img
             className="avatar-gif"

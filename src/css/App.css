@@ -4,6 +4,10 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
   background-color: #fff;
+
+  -webkit-user-select: none;
+
+  -webkit-touch-callout: none;
 }
 html,
 body {
@@ -31,6 +35,7 @@ a {
   margin-top: 3%;
   height: 80vh;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .container.Main-content > div:first-child {
   /* margin-top: 4vh; */
@@ -124,7 +129,7 @@ img {
   width: 100vw;
   height: auto;
   padding: 10px;
-  z-index: 5;
+  z-index: 20;
   color: white;
   opacity: 1;
   transition: 500ms all;
