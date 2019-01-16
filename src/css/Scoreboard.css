@@ -12,7 +12,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
+.score-holder:last-child {
+  flex-direction: row-reverse;
+}
+
 .score-holder .score {
   /* margin: 0 2%; */
   font-size: 1.2em;

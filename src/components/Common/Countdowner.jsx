@@ -1,6 +1,6 @@
 import React from "react";
 import ProfileAvatar from "./ProfileAvatar.jsx";
-import VideoBg from "./VideoBg.jsx";
+// import VideoBg from "./VideoBg.jsx";
 import "../../css/Countdowner.css";
 class Countdowner extends React.Component {
   constructor(props) {
@@ -11,27 +11,34 @@ class Countdowner extends React.Component {
     let date = parseInt((t2 - t1) / (24 * 3600 * 1000));
 
     this.state = {
-      date: date
+      date: date,
+      users: []
     };
   }
   componentDidMount() {}
   // static getDerivedStateFromProps(nextProps, prevState) {
-  //   if (nextProps.categories !== prevState.featuredData) {
-  //     return { featuredData: nextProps.categories };
+  //   let changes = {};
+  //   if (nextProps.currentUsers !== prevState.users) {
+  //     changes.users = nextProps.currentUsers;
   //   }
-  //   return null;
+  //   return changes || null;
   // }
   render() {
+    const currentUsers = this.props.currentUsers;
     return (
       <div
         className="Countdowner-holder"
-        style={{ backgroundImage: `url(${this.props.imgSrc})` }}
+        style={{
+          backgroundImage: "url(assets/images/bg/vegas.jpeg)",
+          backgroundPosition: "bottom right",
+          backgroundSize: "cover"
+        }}
       >
-        <VideoBg />
+        {/* <VideoBg /> */}
         <div className="avatar-holder">
           <ProfileAvatar
             className="avatar-circles"
-            imgSrc="http://placehold.it/150x150"
+            imgSrc={currentUsers[0] ? currentUsers[0].img : null}
           />
           <img
             id="heart-symbol"
@@ -40,7 +47,7 @@ class Countdowner extends React.Component {
           />
           <ProfileAvatar
             className="avatar-circles"
-            imgSrc="http://placehold.it/150x150"
+            imgSrc={currentUsers[1] ? currentUsers[1].img : null}
           />
         </div>
 

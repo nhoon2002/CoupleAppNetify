@@ -8,16 +8,16 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgSrc: ["/assets/images/noel.jpg", "https://placehold.it/1920x1080"],
-      loggedIn: false
-      // readyToRender: false,
+      loggedIn: ""
     };
   }
   static getDerivedStateFromProps(nextProps, prevState) {
+    let changes = {};
     if (nextProps.loginStatus !== prevState.loginStatus) {
-      return { loggedIn: nextProps.loginStatus };
+      changes.loggedIn = nextProps.loginStatus;
+      console.log("hi1");
     }
-    return null;
+    return changes || null;
   }
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -37,8 +37,8 @@ class Home extends Component {
     const loggedIn = this.state.loggedIn;
     const loggedInContent = (
       <div className="Home-content">
-        <Countdowner imgSrc={this.state.imgSrc[0]} />
-        <Scoreboard customClass="" currentUser={this.props.db_currentUser} />
+        <Countdowner currentUsers={this.props.users} />
+        <Scoreboard customClass="" currentUsers={this.props.users} />
       </div>
     );
     const guestContent = (

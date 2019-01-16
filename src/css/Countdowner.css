@@ -2,7 +2,7 @@
   /* margin-top: 3%; */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   background-size: cover;
   background-repeat: no-repeat;
   height: 60vh;
@@ -19,7 +19,9 @@
 .avatar-holder img.avatar-circles {
   border-radius: 50%;
   border: 2px solid white;
-  max-width: 33vw;
+  width: 33vw;
+  height: 33vw;
+  object-fit: cover;
 }
 #heart-symbol {
   max-width: 18%;

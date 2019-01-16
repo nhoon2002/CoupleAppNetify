@@ -7,6 +7,8 @@ import Home from "./containers/Home.jsx";
 import Mission from "./containers/Mission.jsx";
 import Coupons from "./containers/Coupons.jsx";
 import CreateMission from "./containers/CreateMission.jsx";
+import EditMyMission from "./containers/EditMyMission.jsx";
+import EditMission from "./containers/EditMission.jsx";
 import Cart from "./containers/Cart.jsx";
 
 import fire from "./firebase.js"; //Firebase config
@@ -38,6 +40,16 @@ const routes = (
           path="create-mission/uid=:user"
           onEnter={handleRoute}
           component={CreateMission}
+        />
+        <Route
+          path="edit-mission/mid=:id"
+          onEnter={handleRoute}
+          component={EditMission}
+        />
+        <Route
+          path="edit-my-mission/mid=:mid"
+          onEnter={handleRoute}
+          component={EditMyMission}
         />
         <Route path="cart" component={Cart} />
       </Route>

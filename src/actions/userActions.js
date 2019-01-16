@@ -83,6 +83,30 @@ export const getMissions = () => async dispatch => {
       console.log("error");
     });
 };
+export const getOneMission = m_id => async dispatch => {
+  await fetch(DEFAULT_API_URL + "get-mission", {
+    method: "POST",
+    headers: {
+      Accept: "application/json"
+      // "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      m_id: m_id
+    })
+  })
+    .then(response => response.json())
+    .then(json => {
+      console.log(json);
+      dispatch({
+        type: "FETCH_MISSION_COMPLETED",
+        payload: json.mission[0]
+      });
+    })
+    .catch(error => {
+      console.log(error);
+      console.log("error");
+    });
+};
 export const getCoupons = () => async dispatch => {
   await fetch(DEFAULT_API_URL + "coupons", {
     method: "GET",
@@ -96,6 +120,26 @@ export const getCoupons = () => async dispatch => {
       dispatch({
         type: "FETCH_COUPONS_COMPLETED",
         payload: json.coupons
+      });
+    })
+    .catch(error => {
+      console.log(error);
+      console.log("error");
+    });
+};
+export const getUsers = () => async dispatch => {
+  await fetch(DEFAULT_API_URL + "get-users", {
+    method: "GET",
+    headers: {
+      Accept: "application/json"
+    }
+  })
+    .then(response => response.json())
+    .then(json => {
+      console.log(json);
+      dispatch({
+        type: "FETCH_USERS_COMPLETED",
+        payload: json.users
       });
     })
     .catch(error => {
@@ -206,6 +250,42 @@ export const createNewMission = data => async dispatch => {
       console.log("error");
     });
 };
+export const missionSucceeded = data => async dispatch => {
+  console.log(data);
+  console.log("Giving points...");
+  await fetch(DEFAULT_API_URL + "mission-succeeded", {
+    method: "POST",
+    headers: {
+      Accept: "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(json => {
+      if (json.status) {
+        browserHistory.push("/missions");
+        this.dispatch(
+          notificationToggle({
+            currentlyShowing: false,
+            msg: "Points have been awarded!",
+            type: "success"
+          })
+        );
+      } else {
+        dispatch(
+          notificationToggle({
+            currentlyShowing: false,
+            msg: json.message,
+            type: "danger"
+          })
+        );
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      console.log("error");
+    });
+};
 export const removeFromCart = data => async dispatch => {
   console.log(data);
   console.log("REMOVE FROM CART");
@@ -246,40 +326,6 @@ export const removeFromCart = data => async dispatch => {
       console.log("error");
     });
 };
-// export const updateZipcode = data => async dispatch => {
-//   console.log(data);
-//   console.log("Updating zipcode...");
-//   await fetch(DEFAULT_API_URL + "edit-zipcode", {
-//     method: "POST",
-//     headers: {
-//       Accept: "application/json"
-//     },
-//     body: JSON.stringify(data)
-//   })
-//     .then(response => response.json())
-//     .then(json => {
-//       console.log(json);
-//       dispatch(updateCurrentUser(data));
-//       if (json.status) {
-//         dispatch({
-//           type: "SWITCH_MODAL_OFF",
-//           payload: false
-//         });
-//       } else {
-//         dispatch(
-//           notificationToggle({
-//             currentlyShowing: false,
-//             msg: json.message,
-//             type: "danger"
-//           })
-//         );
-//       }
-//     })
-//     .catch(error => {
-//       console.log(error);
-//       console.log("error");
-//     });
-// };
 export const getProductList = () => async dispatch => {
   // TODO: make 'category / filter / subcategory' a parameter.
   await fetch(DEFAULT_API_URL + "get-product-list", {
@@ -382,8 +428,8 @@ export const checkSession = () => dispatch => {
     }
     dispatch(requestLogin());
   } else {
-    // localStorage.setItem("loginStatus", firebaseUser.uid);
     dispatch({ type: "SESSION_EXISTS", payload: firebaseUser });
+    dispatch(getUsers());
   }
 };
 export const signOut = () => dispatch => {

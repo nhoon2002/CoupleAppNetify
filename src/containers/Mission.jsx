@@ -8,7 +8,6 @@ class Mission extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imgSrc: "https://placehold.it/1920x740?text=Main+Banner",
       missions: []
     };
   }
@@ -37,7 +36,12 @@ class Mission extends Component {
           </Link>
         </button>
         <SectionHeader title="Missions" />
-        <MissionContainer categories={items} router={this.props.router} />
+        <MissionContainer
+          missions={items}
+          router={this.props.router}
+          currentUser={this.props.db_currentUser}
+          users={this.props.users}
+        />
       </div>
     );
   }

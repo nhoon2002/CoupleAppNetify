@@ -4,41 +4,30 @@ class Scoreboard extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      score: ""
-    };
+    this.state = {};
   }
   componentDidMount() {
-    console.log(this.props.currentUser.uid, this.props.currentUser.email);
+    console.log("mounted scoreboard");
+    console.log(this.props.currentUsers, this.props.currentUsers);
   }
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   if (nextProps.categories !== prevState.featuredData) {
-  //     return { featuredData: nextProps.categories };
-  //   }
-  //   return null;
-  // }
+
   render() {
-    const currentUser = this.props.currentUser.uid;
+    const currentUsers = this.props.currentUsers;
 
     return (
       <div className={"Scoreboard-holder " + this.props.customClass}>
-        <div className="score-holder">
-          <img
-            className="avatar-gif"
-            src="assets/images/home/nh.gif"
-            alt="prof-avatar"
-          />
-          <span className="score">1000&hearts;</span>
-        </div>
-        <div id="separator">|</div>
-        <div className="score-holder">
-          <span className="score">1100&hearts;</span>
-          <img
-            className="avatar-gif"
-            src="assets/images/home/ch.gif"
-            alt="prof-avatar"
-          />
-        </div>
+        {currentUsers.map((user, index) => (
+          <React.Fragment key={index}>
+            <div className="score-holder">
+              <img
+                className="avatar-gif"
+                src={user.scoreboard_gif}
+                alt="prof-avatar"
+              />
+              <span className="score">{user.hearts}&hearts;</span>
+            </div>
+          </React.Fragment>
+        ))}
       </div>
     );
   }

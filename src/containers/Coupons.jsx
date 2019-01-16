@@ -26,7 +26,7 @@ class Coupons extends Component {
     let items = this.state.coupons;
     return (
       <div className="Coupons-container">
-        <Scoreboard customClass="mini-size" />
+        <Scoreboard customClass="mini-size" currentUsers={this.props.users} />
         <div className="Coupons-holder">
           <CouponsHolder categories={items} router={this.props.router} />
           <CouponsHolder

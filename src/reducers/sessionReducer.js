@@ -1,7 +1,8 @@
 export default (
   state = {
     loggedin: false,
-    db_currentUser: ""
+    db_currentUser: "",
+    users: []
   },
   action
 ) => {
@@ -17,7 +18,14 @@ export default (
       return {
         ...state,
         loggedin: false,
-        db_currentUser: ""
+        db_currentUser: "",
+        users: []
+      };
+    }
+    case "FETCH_USERS_COMPLETED": {
+      return {
+        ...state,
+        users: action.payload
       };
     }
     default:

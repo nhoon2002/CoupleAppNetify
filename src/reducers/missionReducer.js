@@ -2,7 +2,8 @@ export default (
   state = {
     error: false,
     processed: false,
-    data: []
+    data: [],
+    mission: {}
   },
   action
 ) => {
@@ -12,6 +13,12 @@ export default (
         ...state,
         processed: true,
         data: action.payload
+      };
+    case "FETCH_MISSION_COMPLETED":
+      return {
+        ...state,
+        processed: true,
+        mission: action.payload
       };
     default:
       return state;
