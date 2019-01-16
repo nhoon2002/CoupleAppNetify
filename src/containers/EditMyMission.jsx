@@ -8,7 +8,7 @@ class EditMyMission extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      m_id: null,
+      m_id: undefined,
       mission: {}
     };
   }
@@ -43,6 +43,23 @@ class EditMyMission extends Component {
       this.props.missionSucceeded(data);
     }
   };
+  handleDelete = () => {
+    let data = {
+      m_id: parseInt(this.state.mission.m_id)
+    };
+    if (isNaN(data.m_id)) {
+      this.props.notificationToggle({
+        currentlyShowing: false,
+        msg: "Invalid. Please try again later.",
+        type: "warning"
+      });
+    } else {
+      this.props.deleteMission(data);
+    }
+  };
+  handleBack = () => {
+    this.props.router.push("/missions");
+  };
 
   render() {
     // let item = this.state.productDetail;
@@ -64,7 +81,7 @@ class EditMyMission extends Component {
               <strong>Title</strong>: {this.state.mission.title}
             </p>
             <p>
-              <strong>Description</strong>: {this.state.mission.desc}
+              <strong>Description</strong>: {this.state.mission.descr}
             </p>
             <p>
               <strong>Value</strong>: {this.state.mission.pvalue}
@@ -74,6 +91,18 @@ class EditMyMission extends Component {
               classList="btn btn-full rounded btn-xen"
               btnText="Mission Success!"
               action={this.handleClick}
+            />
+            <FullButton
+              color="white"
+              classList="btn btn-full rounded btn-google"
+              btnText="Delete Mission"
+              action={this.handleDelete}
+            />
+            <FullButton
+              color="white"
+              classList="btn btn-full rounded btn-fb"
+              btnText="Go Back"
+              action={this.handleBack}
             />
           </div>
         </div>

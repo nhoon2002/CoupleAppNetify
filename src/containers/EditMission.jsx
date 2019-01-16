@@ -8,47 +8,29 @@ class EditMission extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: "",
-      title: "",
-      desc: "",
-      pvalue: undefined
+      m_id: undefined,
+      mission: {}
     };
   }
   componentDidMount() {
     window.scrollTo(0, 0);
     this.props.modalToggle(true, "");
+    this.props.getOneMission(this.props.router.params.mid);
   }
-  inputValueDetector = (e, tfor) => {
-    this.setState({ [tfor]: e.target.value });
-  };
-  handleClick = () => {
-    let data = {
-      creator: this.state.user,
-      title: this.state.title,
-      descr: this.state.desc,
-      pvalue: this.state.pvalue
-    };
-    if (
-      data.creator === "" ||
-      data.title === "" ||
-      data.pvalue === "" ||
-      isNaN(data.pvalue)
-    ) {
-      this.props.notificationToggle({
-        currentlyShowing: false,
-        msg: "Mission is invalid. Please check all fields.",
-        type: "warning"
-      });
-    } else {
-      this.props.createNewMission(data);
-    }
-  };
   static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.mission !== prevState.mission) {
+      return { m_id: nextProps.router.params.mid, mission: nextProps.mission };
+    }
     if (nextProps.router !== prevState.router) {
-      return { user: nextProps.params.user };
+      return { m_id: nextProps.router.params.mid, mission: nextProps.mission };
     }
     return null;
   }
+
+  handleClick = () => {
+    this.props.router.push("/missions");
+  };
+
   render() {
     // let item = this.state.productDetail;
     return (
@@ -63,33 +45,21 @@ class EditMission extends Component {
         }}
       >
         <div className="CreateMission-content">
-          <SectionHeader title={"Create New Mission - " + this.state.user} />
+          <SectionHeader title={"Mission Status"} />
           <div className="FormHolder">
-            <InputChild
-              inputValueDetector={this.inputValueDetector}
-              value={this.state.title}
-              type="text"
-              tfor="title"
-              placeholder="Title"
-            />
-            <InputChild
-              inputValueDetector={this.inputValueDetector}
-              value={this.state.desc}
-              type="text"
-              tfor="desc"
-              placeholder="Description"
-            />
-            <InputChild
-              inputValueDetector={this.inputValueDetector}
-              value={this.state.pvalue}
-              type="number"
-              tfor="pvalue"
-              placeholder="Value (&hearts;)"
-            />
+            <p>
+              <strong>Title</strong>: {this.state.mission.title}
+            </p>
+            <p>
+              <strong>Description</strong>: {this.state.mission.descr}
+            </p>
+            <p>
+              <strong>Value</strong>: {this.state.mission.pvalue}
+            </p>
             <FullButton
               color="white"
-              classList="btn btn-full rounded btn-xen"
-              btnText="Submit"
+              classList="btn btn-full rounded btn-fb"
+              btnText="Go Back"
               action={this.handleClick}
             />
           </div>

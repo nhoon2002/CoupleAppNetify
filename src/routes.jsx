@@ -42,7 +42,7 @@ const routes = (
           component={CreateMission}
         />
         <Route
-          path="edit-mission/mid=:id"
+          path="edit-mission/mid=:mid"
           onEnter={handleRoute}
           component={EditMission}
         />

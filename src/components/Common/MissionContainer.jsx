@@ -12,12 +12,13 @@ export default class MissionContainer extends React.Component {
     if (mine) {
       this.props.router.push(`/edit-my-mission/mid=${id}`);
     } else {
-      // this.props.router.push(`/edit-mission/mid=${id}`);
+      this.props.router.push(`/edit-mission/mid=${id}`);
       return null;
     }
   };
   render() {
     const { missions } = this.props;
+
     return (
       <div className="MissionContainer-container">
         {missions.map((cat, i) => (

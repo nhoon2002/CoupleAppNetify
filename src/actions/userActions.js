@@ -286,6 +286,42 @@ export const missionSucceeded = data => async dispatch => {
       console.log("error");
     });
 };
+export const deleteMission = data => async dispatch => {
+  console.log(data);
+  console.log("deleting mission...");
+  await fetch(DEFAULT_API_URL + "delete-mission", {
+    method: "POST",
+    headers: {
+      Accept: "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(json => {
+      if (json.status) {
+        browserHistory.push("/missions");
+        this.dispatch(
+          notificationToggle({
+            currentlyShowing: false,
+            msg: "Mission deleted!",
+            type: "success"
+          })
+        );
+      } else {
+        dispatch(
+          notificationToggle({
+            currentlyShowing: false,
+            msg: json.message,
+            type: "danger"
+          })
+        );
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      console.log("error");
+    });
+};
 export const removeFromCart = data => async dispatch => {
   console.log(data);
   console.log("REMOVE FROM CART");

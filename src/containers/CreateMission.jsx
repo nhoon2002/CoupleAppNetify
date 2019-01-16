@@ -26,7 +26,7 @@ class CreateMission extends Component {
       creator: this.state.user,
       title: this.state.title,
       descr: this.state.desc,
-      pvalue: this.state.pvalue
+      pvalue: parseInt(this.state.pvalue)
     };
     if (
       data.creator === "" ||
