@@ -3,7 +3,8 @@ export default (
     error: false,
     processed: false,
     data: [],
-    mission: {}
+    mission: {},
+    completed_missions: []
   },
   action
 ) => {
@@ -19,6 +20,12 @@ export default (
         ...state,
         processed: true,
         mission: action.payload
+      };
+    case "FETCH_HISTORY_COMPLETED":
+      return {
+        ...state,
+        processed: true,
+        completed_missions: action.payload
       };
     default:
       return state;

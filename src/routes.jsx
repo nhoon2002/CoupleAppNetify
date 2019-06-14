@@ -9,6 +9,7 @@ import Coupons from "./containers/Coupons.jsx";
 import CreateMission from "./containers/CreateMission.jsx";
 import EditMyMission from "./containers/EditMyMission.jsx";
 import EditMission from "./containers/EditMission.jsx";
+import PointHistory from "./containers/PointHistory.jsx";
 import Cart from "./containers/Cart.jsx";
 
 import fire from "./firebase.js"; //Firebase config
@@ -50,6 +51,11 @@ const routes = (
           path="edit-my-mission/mid=:mid"
           onEnter={handleRoute}
           component={EditMyMission}
+        />
+        <Route
+          path="point-history"
+          // onEnter={handleRoute}
+          component={PointHistory}
         />
         <Route path="cart" component={Cart} />
       </Route>

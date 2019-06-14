@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import SectionHeader from "../components/Common/SectionHeader.jsx";
-import MissionContainer from "../components/Common/MissionContainer.jsx";
+import PointsLog from "../components/Common/PointsLog.jsx";
 import "../css/Mission.css";
 import { Link } from "react-router";
 
-class Mission extends Component {
+class PointHistory extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,16 +12,17 @@ class Mission extends Component {
     };
   }
   componentDidMount() {
+    console.log("mountedPointHistory");
     window.scrollTo(0, 0);
     this.props.modalToggle(true, "");
     //Get categories
-    this.props.getMissions();
+    this.props.getCompletedMissions();
   }
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.missions !== prevState.missions) {
+    if (nextProps.completed_missions !== prevState.completed_missions) {
       console.log("missions:-------------");
-      console.log(nextProps.missions);
-      return { missions: nextProps.missions };
+
+      return { missions: nextProps.completed_missions };
     }
     return null;
   }
@@ -30,16 +31,8 @@ class Mission extends Component {
 
     return (
       <div className="Mission-content">
-        <button className="view-history">
-          <Link to="/point-history">H</Link>
-        </button>
-        <button className="add-new-mission">
-          <Link to={"/create-mission/uid=" + this.props.db_currentUser.uid}>
-            +
-          </Link>
-        </button>
-        <SectionHeader title="Missions" />
-        <MissionContainer
+        <SectionHeader title="History" />
+        <PointsLog
           missions={items}
           router={this.props.router}
           currentUser={this.props.db_currentUser}
@@ -49,4 +42,4 @@ class Mission extends Component {
     );
   }
 }
-export default Mission;
+export default PointHistory;

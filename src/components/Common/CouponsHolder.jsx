@@ -22,7 +22,7 @@ export default class CouponsHolder extends React.Component {
             key={i}
           >
             <CouponItem
-              couponName={"Sample " + i}
+              couponName={cat.name}
               couponOwner={this.props.owner}
               router={this.props.router}
             />

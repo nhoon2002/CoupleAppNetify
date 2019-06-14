@@ -83,6 +83,26 @@ export const getMissions = () => async dispatch => {
       console.log("error");
     });
 };
+export const getCompletedMissions = () => async dispatch => {
+  await fetch(DEFAULT_API_URL + "completed-missions", {
+    method: "GET",
+    headers: {
+      Accept: "application/json"
+    }
+  })
+    .then(response => response.json())
+    .then(json => {
+      console.log(json);
+      dispatch({
+        type: "FETCH_HISTORY_COMPLETED",
+        payload: json.completed_missions
+      });
+    })
+    .catch(error => {
+      console.log(error);
+      console.log("error");
+    });
+};
 export const getOneMission = m_id => async dispatch => {
   await fetch(DEFAULT_API_URL + "get-mission", {
     method: "POST",

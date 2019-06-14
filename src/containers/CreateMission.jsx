@@ -43,6 +43,10 @@ class CreateMission extends Component {
       this.props.createNewMission(data);
     }
   };
+  handleBack = () => {
+    this.props.router.push("/missions");
+  };
+
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.router !== prevState.router) {
       return { user: nextProps.params.user };
@@ -91,6 +95,12 @@ class CreateMission extends Component {
               classList="btn btn-full rounded btn-xen"
               btnText="Submit"
               action={this.handleClick}
+            />
+            <FullButton
+              color="white"
+              classList="btn btn-full rounded btn-fb"
+              btnText="Go Back"
+              action={this.handleBack}
             />
           </div>
         </div>

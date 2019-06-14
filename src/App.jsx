@@ -16,6 +16,7 @@ const mapStateToProps = state => ({
   axiosData: state.sampleReducer.axios,
   categories: state.categoryReducer.data,
   missions: state.missionReducer.data,
+  completed_missions: state.missionReducer.completed_missions,
   mission: state.missionReducer.mission,
   coupons: state.couponReducer.data,
   cart: state.cartReducer.data,
